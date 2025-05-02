@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech to Text</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
+      text-align: center;
+    }
+    #result {
+      margin-top: 2em;
+      padding: 1em;
+      border: 1px solid #ccc;
+      min-height: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Speech to Text</h1>
+  <button id="start-btn">🎙 Start Listening</button>
+  <div id="result">Speech will appear here...</div>
+
+  <script>
+    // Check browser support
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("Your browser does not support Speech Recognition. Please use Chrome.");
+    } else {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false; // Stop automatically after a sentence
+      recognition.lang = 'en-US';     // You can change this to your desired language
+      recognition.interimResults = false;
+
+      const resultDiv = document.getElementById('result');
+      const startBtn = document.getElementById('start-btn');
+
+      startBtn.onclick = () => {
+        recognition.start();
+        resultDiv.textContent = "Listening...";
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        resultDiv.textContent = "You said: " + transcript;
+      };
+
+      recognition.onerror = (event) => {
+        resultDiv.textContent = "Error: " + event.error;
+      };
+
+      recognition.onend = () => {
+        console.log("Recognition ended");
+      };
+    }
+  </script>
+</body>
+</html>
