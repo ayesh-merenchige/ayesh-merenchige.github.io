@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ayesh Merenchige's research work - Colour Sequence Analysing and Prediction from UI Images using LSTM Deep Learning.">
-    <meta name="keywords" content="Research, UI Design, Colour Analysis, LSTM Deep Learning, UI Images, Machine Learning Research">
-    <title>Research & Publications - Ayesh Merenchige | UI Colour Analysis</title>
+    <meta name="description" content="Ayesh Merenchige's research work - Weight-Lifting Posture Evaluator (LSTM + MediaPipe) and Lightweight Cashew Nut Grader (Optimized YOLOv8 + Raspberry Pi 4B).">
+    <meta name="keywords" content="Research, LSTM, MediaPipe, Pose Detection, YOLOv8, Raspberry Pi, Computer Vision, Edge AI, Machine Learning Research">
+    <title>Research - Ayesh Merenchige | Computer Vision & Edge AI</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,16 +21,44 @@
                 <tr>
                     <td>
                         <span class="material-symbols-outlined" style="color: rgb(201, 200, 100); font-size: 30px;">
-                            palette
+                            fitness_center
                         </span>
                     </td>
                     <td>
-                        <b style="color: rgb(201, 200, 100);">Colour Sequence Analysing and Prediction from UI Images</b>
+                        <b style="color: rgb(201, 200, 100);">Weight-Lifting Posture Evaluator (LSTM + MediaPipe)</b>
                     </td>
                 </tr>
                 </table>
-            <p>Collecting 4000+ UI images and analyzing the colour patterns that UI designs follow using <b>LSTM Deep-Learning</b> approach.</p>
-            <p style="color: rgb(255, 127, 127);"><b>Ongoing</b></p>
+            <p><b style="color: rgb(90, 221, 225);">Analyzing motion over time instead of just static poses.</b></p>
+            <p>Performance : <b style="color: rgb(255, 127, 127);">94% accuracy (Bicep Curls) · 96% accuracy (Tricep Kickbacks)</b></p>
+            <p>- How it works: Tracks the user's body movements across multiple video frames using <b style="color: rgb(255, 127, 127);">Google MediaPipe</b>. Instead of judging a single frozen picture, the <b style="color: rgb(255, 127, 127);">LSTM network</b> looks at the sequence of motion - this makes it much better at catching bad form.</p>
+            <p>- Key Features: Extracts simple body metrics from each frame, such as joint angles, torso tilt, and head position, to understand the full movement pattern.</p>
+            <p>- User Feedback: A lightweight <b style="color: rgb(255, 127, 127);">Flask web app</b> gives live, frame-by-frame tips on common mistakes (e.g., flared elbows, twisting torso, or misaligned wrists).</p>
+            <p>- Impact: A practical, camera-only solution that helps home fitness users correct their technique and avoid injury without needing expensive sensors.</p>
+            <p>Stack : <b style="color: rgb(255, 127, 127);">Python, TensorFlow, Keras, NumPy, Pandas, Matplotlib, MediaPipe, Flask, HTML/CSS</b></p>
+        </div>
+
+        <div class="subdiv">
+            <table>
+                <tr>
+                    <td>
+                        <span class="material-symbols-outlined" style="color: rgb(201, 200, 100); font-size: 30px;">
+                            memory
+                        </span>
+                    </td>
+                    <td>
+                        <b style="color: rgb(201, 200, 100);">Lightweight Cashew Nut Grader (Optimized YOLOv8 + Raspberry Pi 4B)</b>
+                    </td>
+                </tr>
+                </table>
+            <p><b style="color: rgb(90, 221, 225);">Making a super-accurate model tiny enough to run on cheap hardware.</b></p>
+            <p>Performance : <b style="color: rgb(255, 127, 127);">97.21% classification accuracy · 0.949 mAP (detection score) · Runs at 30 FPS on a Raspberry Pi 4B</b></p>
+            <p>- New Dataset: Built and labeled the first cashew nut image dataset from Northern Province, Sri Lanka - covering whole, half-split, broken, and diseased nuts.</p>
+            <p>- The "Small but Accurate" Challenge: To run on a <b style="color: rgb(255, 127, 127);">Raspberry Pi</b>, the model must be tiny. Used pruning (removing unnecessary connections) and quantization (compressing the numbers) to shrink <b style="color: rgb(255, 127, 127);">YOLOv8 Nano</b>.</p>
+            <p>- Proof of Performance: Compared the compressed model against larger models like <b style="color: rgb(255, 127, 127);">YOLOv8 and FRCNN</b>. Results confirmed the tiny model matched their high accuracy - proving performance wasn't sacrificed to fit on the Pi.</p>
+            <p>- Live Deployment: Integrated with a conveyor-belt camera for instant, automatic grading. Results are displayed directly on a monitor.</p>
+            <p>- Impact: A low-cost, automated solution that helps local cashew processors sort nuts faster and with fewer human errors than manual checking.</p>
+            <p>Stack : <b style="color: rgb(255, 127, 127);">Python, YOLOv8, TensorFlow, PyQt for UI, NumPy, Pandas</b></p>
         </div>
     </main>
 </body>
