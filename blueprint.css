@@ -167,6 +167,80 @@ button:focus-visible {
     padding: 26px 0 0;
 }
 
+.hero-main {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 4vw, 48px);
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.hero-main .big {
+    flex: 1 1 320px;
+    min-width: 0;
+    margin: 14px 0 8px;
+}
+
+.hero-photo {
+    margin: 0;
+    flex: 0 0 auto;
+    position: relative;
+    line-height: 0;
+}
+
+.hero-photo img {
+    display: none;
+    width: min(34vw, 190px);
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.hero-photo:hover img {
+    transform: scale(1.04);
+}
+
+.hero-photo::before {
+    content: "";
+    position: absolute;
+    inset: -13px;
+    border: 2px dashed var(--accent);
+    border-radius: 50%;
+    opacity: 0.55;
+    pointer-events: none;
+    animation: hero-spin 26s linear infinite;
+}
+
+.hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: -25px;
+    border: 1px dotted var(--ink-soft);
+    border-radius: 50%;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+@keyframes hero-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-photo .pic-light {
+    display: block;
+}
+
+html[data-theme="dark"] .hero-photo .pic-light {
+    display: none;
+}
+
+html[data-theme="dark"] .hero-photo .pic-dark {
+    display: block;
+}
+
 .eyebrow {
     font-family: var(--mono);
     font-size: 12px;
@@ -726,6 +800,16 @@ button:focus-visible {
         position: static;
     }
 
+    .hero-main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .hero-photo img {
+        width: min(42vw, 150px);
+    }
+
     .sec-anno {
         display: none;
     }
@@ -744,6 +828,14 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+
+    .hero-photo::before {
+        animation: none;
+    }
+
+    .hero-photo img {
+        transition: none;
     }
 
     .rv {
