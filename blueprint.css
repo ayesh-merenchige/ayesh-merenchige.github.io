@@ -6,9 +6,42 @@
     --accent: #1253c8;
     --accent-soft: rgba(18, 83, 200, 0.07);
     --red: #d83a2e;
+    --red-soft: rgba(216, 58, 46, 0.05);
     --grid: rgba(18, 83, 200, 0.055);
+    --page: #e8e6de;
+    --txt-dim: #2f2f2a;
+    --rule: rgba(27, 27, 25, 0.5);
+    --rule-soft: rgba(27, 27, 25, 0.4);
+    --promo-bg: #f0f4fd;
+    --panel: #1b1b19;
+    --panel-ink: #f6f4ee;
+    --panel-mut: #b9b9ae;
+    --panel-line: rgba(246, 244, 238, 0.45);
+    --linkonpanel: #8fb0f2;
     --mono: 'Space Mono', ui-monospace, monospace;
     --sans: 'Space Grotesk', 'Segoe UI', sans-serif;
+}
+
+html[data-theme="dark"] {
+    --paper: #151a24;
+    --card: #1c2231;
+    --ink: #cdd8ea;
+    --ink-soft: #8f9db6;
+    --accent: #6da3ff;
+    --accent-soft: rgba(109, 163, 255, 0.12);
+    --red: #ff6f60;
+    --red-soft: rgba(255, 111, 96, 0.12);
+    --grid: rgba(120, 160, 255, 0.06);
+    --page: #0a0e16;
+    --txt-dim: #b7c3d8;
+    --rule: rgba(205, 216, 234, 0.45);
+    --rule-soft: rgba(205, 216, 234, 0.3);
+    --promo-bg: #1e2942;
+    --panel: #0b0f18;
+    --panel-ink: #e9eef7;
+    --panel-mut: #97a5bf;
+    --panel-line: rgba(200, 215, 240, 0.22);
+    --linkonpanel: #8ab0ff;
 }
 
 * {
@@ -22,7 +55,7 @@ html {
 
 body {
     margin: 0;
-    background-color: #e8e6de;
+    background-color: var(--page);
     background-image:
         linear-gradient(0deg, var(--grid) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid) 1px, transparent 1px);
@@ -50,7 +83,28 @@ button:focus-visible {
 
 ::selection {
     background: var(--accent);
-    color: var(--paper);
+    color: #fff;
+}
+
+.theme-btn {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1;
+    background: var(--card);
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 5px 9px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.rail nav {
+    margin-left: auto;
 }
 
 .sheet {
@@ -139,7 +193,7 @@ button:focus-visible {
     max-width: 72ch;
     margin: 14px 0 0;
     font-size: 1.07rem;
-    color: #2e2e29;
+    color: var(--txt-dim);
 }
 
 .contactline {
@@ -232,7 +286,7 @@ button:focus-visible {
 .sec-rule {
     flex: 1;
     min-width: 60px;
-    border-bottom: 1px dashed rgba(27, 27, 25, 0.5);
+    border-bottom: 1px dashed var(--rule);
     transform: translateY(-6px);
 }
 
@@ -360,7 +414,7 @@ button:focus-visible {
 .proj.promo {
     grid-column: 1 / -1;
     border: 2px solid var(--accent);
-    background: #f0f4fd;
+    background: var(--promo-bg);
 }
 
 .pno {
@@ -380,7 +434,7 @@ button:focus-visible {
 .proj p {
     margin: 0;
     font-size: 0.95rem;
-    color: #33332e;
+    color: var(--txt-dim);
 }
 
 .stack {
@@ -453,7 +507,7 @@ button:focus-visible {
     font-size: 12.5px;
     font-weight: 700;
     padding: 5px 11px;
-    background: rgba(216, 58, 46, 0.05);
+    background: var(--red-soft);
 }
 
 .skills {
@@ -493,7 +547,7 @@ button:focus-visible {
 }
 
 .certrow {
-    border-bottom: 1px dashed rgba(27, 27, 25, 0.4);
+    border-bottom: 1px dashed var(--rule-soft);
     padding: 12px 0;
     display: flex;
     justify-content: space-between;
@@ -557,7 +611,7 @@ button:focus-visible {
 .extra p {
     margin: 0;
     font-size: 0.93rem;
-    color: #33332e;
+    color: var(--txt-dim);
 }
 
 .extra .when {
@@ -569,8 +623,8 @@ button:focus-visible {
 }
 
 .contact {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--panel);
+    color: var(--panel-ink);
     padding: 34px 0 0;
     margin-top: 10px;
 }
@@ -584,7 +638,7 @@ button:focus-visible {
 .contact .sub {
     font-family: var(--mono);
     font-size: 12px;
-    color: #b9b9ae;
+    color: var(--panel-mut);
     margin: 0 0 22px;
 }
 
@@ -595,7 +649,7 @@ button:focus-visible {
 }
 
 .ctile {
-    border: 1px solid rgba(246, 244, 238, 0.45);
+    border: 1px solid var(--panel-line);
     padding: 13px 15px;
     font-family: var(--mono);
     font-size: 12px;
@@ -606,17 +660,17 @@ button:focus-visible {
     font-size: 9.5px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #b9b9ae;
+    color: var(--panel-mut);
     margin-bottom: 5px;
 }
 
 .ctile a {
-    color: #8fb0f2;
+    color: var(--linkonpanel);
     word-break: break-all;
 }
 
 .ctile a:hover {
-    color: #fff;
+    color: var(--panel-ink);
 }
 
 .foot {
@@ -624,22 +678,22 @@ button:focus-visible {
     justify-content: space-between;
     gap: 12px;
     flex-wrap: wrap;
-    border-top: 1px solid rgba(246, 244, 238, 0.4);
+    border-top: 1px solid var(--panel-line);
     margin-top: 30px;
     padding: 14px clamp(18px, 5vw, 58px);
     font-family: var(--mono);
     font-size: 10.5px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #b9b9ae;
+    color: var(--panel-mut);
 }
 
 .foot a {
-    color: var(--paper);
+    color: var(--panel-ink);
 }
 
 .foot a:hover {
-    color: #8fb0f2;
+    color: var(--linkonpanel);
 }
 
 .rv {
