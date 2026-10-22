@@ -270,10 +270,11 @@
 }
 
 .sched-note {
-    border-left: 3px solid var(--accent);
+    border: 1.5px solid var(--accent);
+    border-left: 4px solid var(--accent);
     background: var(--accent-soft);
-    padding: 12px 16px;
-    font-size: 0.95rem;
+    padding: 14px 18px;
+    font-size: 0.98rem;
 }
 
 /* ---------- PRICING ---------- */
